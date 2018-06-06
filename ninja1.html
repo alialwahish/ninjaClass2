@@ -1,0 +1,51 @@
+
+<script>
+function Ninja(name){
+    this.name=name;
+    this.health=100
+    var speed =3;
+    var strength=3;
+   
+    this.sayName = function(){
+        return this.name;
+    
+    }
+    this.showStatus = function(){
+        return "Name: "+this.name+" Strength: "+strength+" Health:"+this.health 
+    }
+    this.drinkSake = function(){
+        this.health+=10;
+        return "Drinking sake"
+    }
+
+    this.punch=function(rhsNinja){
+        if(rhsNinja instanceof Ninja){
+        
+            rhsNinja.health-=5;
+            return this.name+" Punched "+rhsNinja.name
+        }
+        else
+        return false;
+    }
+    this.kick=function(rhsNinja){
+        if(rhsNinja instanceof Ninja){
+        rhsNinja.health-=15;
+        return this.name+" Kicked "+rhsNinja.name
+
+        }
+        else
+        return false;
+    }
+   
+}
+
+
+var ali= new Ninja("Ali");
+var naeif = new Ninja("Naeif");
+console.log(naeif.showStatus())
+console.log(ali.showStatus())
+console.log(ali.kick(naeif))
+console.log(naeif.showStatus())
+console.log(naeif.punch(ali))
+console.log(ali.showStatus())
+</script>
